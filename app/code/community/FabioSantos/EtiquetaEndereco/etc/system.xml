@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+		<fabiosantos_etiquetaendereco>
+			<label>Etiquetas Correios</label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>303</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<remetente>
+					<label>Dados do remetente</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<name1>
+							<label>Nome - Linha 1</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Se deixar em branco esta linha não será impressa</comment>
+						</name1>
+						<name2>
+							<label>Nome - Linha 2</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Se deixar em branco esta linha não será impressa</comment>
+						</name2>
+						<fone>
+							<label>Telefone</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Se deixar em branco esta linha não será impressa</comment>
+						</fone>
+						<address>
+							<label>Endereço</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</address>
+						<endcomp>
+							<label>Complemento</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Se deixar em branco esta linha não será impressa</comment>
+						</endcomp>
+						<bairro>
+							<label>Bairro</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bairro>
+						<cep>
+							<label>CEP</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cep>
+						<city>
+							<label>Cidade / Estado</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Ex. São Paulo / SP</comment>
+						</city>
+					</fields>
+				</remetente>
+				<aviso_receb>
+					<label>Aviso de Recebimento</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<conteudo>
+							<label>Declaração de conteúdo (AR)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Preencha se quiser utilizar uma declaração de conteúdo padrão</comment>
+						</conteudo>
+					</fields>
+				</aviso_receb>
+			</groups>
+        </fabiosantos_etiquetaendereco>
+	</sections>
+</config>

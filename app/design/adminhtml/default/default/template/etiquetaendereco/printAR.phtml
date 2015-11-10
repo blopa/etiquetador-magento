@@ -1,0 +1,201 @@
+<?php $labelsData = $this->getLabelsData(); ?>
+<?php $rem = $this->getLabelsRem(); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Emissor de AR</title>
+		<style type="text/css">
+		td{font-family: arial; font-size: 8px;	vertical-align:top;}
+		.divCodBarras{width: 230px; overflow: auto;}
+		.BordaInfDir{border-right: 2px solid black; border-bottom: 2PX solid black;}
+		.BordaInf{border-bottom: 2PX solid black;}
+		.BordaEsq{border-left: 2PX solid black;}
+		.BordaInfEsq{border-bottom: 2PX solid black;border-left: 2px solid black;}
+		.BordaSupEsr{border-bottom: 2PX solid black;}
+		.BordaDirTracejada{border-right: 1px dotted;	text-align:center; vertical-align:middle;}
+		.BordaTodas{	border-right: 2px solid black; border-left: 2PX solid black; border-top: 2px solid black; border-bottom: 2PX solid black;}
+		.style57 {font-size: 7px}
+		.style58 {font-size: 1px}
+		.style59 { font-size: 11px; font-style: italic; font-weight: bold;}
+		.style60 { font-size: 23px; font-weight: bold;}
+		.style62 { font-size: 12px; font-weight: bold;}
+		</style>
+		<script type="text/javascript">
+			function edit(field){
+				field.onclick = null;
+				var text = field.innerHTML;
+				var input = '<input type="text" value="'+text+'" />';
+				field.innerHTML = input;
+				field.firstChild.focus();
+				field.firstChild.select();
+				field.firstChild.onblur = function(){
+					if (field.firstChild.value == "") {
+						field.firstChild.value = "&nbsp;";
+					}
+					field.innerHTML = field.firstChild.value;
+					field.onclick = function(){edit(this);};
+				}
+			}
+			function editCont(parent){
+				parent.onclick = null;
+				var field = parent.children[1];
+				var text = field.innerHTML;
+				var input = '<input type="text" value="'+text+'" />';
+				field.innerHTML = input;
+				field.firstChild.focus();
+				field.firstChild.select();
+				field.firstChild.onblur = function(){
+					if (field.firstChild.value == "") {
+						field.firstChild.value = "&nbsp;";
+					}
+					field.innerHTML = field.firstChild.value;
+					parent.onclick = function(){editCont(this);};
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<?php $e = 1; ?>
+		<?php for($p = 1; $p <= $this->getARPagesCount(); $p++): ?>
+		<?php for($i = 1; $i <= min(2, $this->getLabelsCount() - 2 * ($p -1) ); $i++) : ?>
+		<table width="689" border="0" cellspacing="0" class="BordaTodas" style="margin-left:88px; margin-top:<?php echo $e%2 ? 60 : 179 ?>px; width:552px; height:371px;">
+			<tr>
+				<td width="31" rowspan="12" valign="bottom" class="BordaDirTracejada">
+					<div align="center">
+						<img src="<?php echo $this->getSkinUrl('images/etiquetaendereco/ar2_r3_c2.gif') ?>" alt=""/>
+					</div>
+				</td>
+				<td width="7" height="30">&nbsp;</td>
+				<td width="124" class="BordaInf">
+					<img src="<?php echo $this->getSkinUrl('images/etiquetaendereco/logo_correios.gif') ?>" width="119" height="25" alt=""/>
+				</td>
+				<td width="86" class="style58 BordaInf">
+					<span class="style59">AVISO DE<br />RECEBIMENTO</span>
+				</td>
+				<td colspan="3" align="center" valign="middle" class="BordaInf style60">AR</td>
+				<td align="center" valign="middle" class="BordaInf style62"><?php echo $this->getMaoPropria() ? 'MP' : '&nbsp;' ?></td>
+				<td width="126" class="BordaInfEsq">DATA DE POSTAGEM</td>
+			</tr>
+			<tr>
+				<td height="30">&nbsp;</td>
+				<td colspan="6" rowspan="2" class="BordaInfEsq">
+					<table border="0" width="370px" style="height:176px" >
+						<tr>
+							<td valign="top" class="style24">
+								<span class="style36">DESTINAT&Aacute;RIO</span><br />
+								<div class="style38">
+									<?php if ($labelsData[$e-1]['name1']): ?>
+										<span onclick="edit(this)"><?php echo $labelsData[$e-1]['name1'] ?></span><br />
+									<?php endif; ?>								
+									<?php if ($labelsData[$e-1]['name2']): ?>
+										<span onclick="edit(this)"><?php echo $labelsData[$e-1]['name2'] ?></span><br />
+									<?php endif; ?>
+									<span onclick="edit(this)"><?php echo $labelsData[$e-1]['street'] . ' ' . $labelsData[$e-1]['num'] ?></span><br />
+									<?php if ($labelsData[$e-1]['compl'] || $labelsData[$e-1]['bairro']): ?>
+										<span onclick="edit(this)"><?php
+											if ($labelsData[$e-1]['compl']) echo $labelsData[$e-1]['compl'] . ' ';
+											echo $labelsData[$e-1]['bairro'] ?></span><br />
+									<?php endif; ?>
+									<span onclick="edit(this)"><?php echo $labelsData[$e-1]['zipcode'] . ' - ' . $labelsData[$e-1]['city'] . ' - ' . $labelsData[$e-1]['uf'] ?></span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" valign="bottom">
+								<div class="divCodBarras" style="border: 1px dotted black; font-family: Arial, Helvetica, sans-serif; font-size: 8px;">(C&Oacute;DIGO DE BARRAS OU N&ordm; DE REGISTRO DO OBJETO)</div>
+							</td>
+						</tr>
+						<tr>
+							<td align="left" valign="bottom">
+								<span class="style42">ENDERE&Ccedil;O PARA DEVOLU&Ccedil;&Atilde;O DO AR</span><br />
+								<div class="style43">
+									<?php if ($rem['name1']):?>
+										<span onclick="edit(this)"><?php echo $rem['name1'] ?></span><br />
+									<?php endif; ?>
+									<?php if ($rem['name2']):?>
+										<span onclick="edit(this)"><?php echo $rem['name2'] ?></span><br />
+									<?php endif; ?>
+									<span onclick="edit(this)"><?php echo $rem['address'] ?></span><br />
+									<span onclick="edit(this)"><?php
+										if ($rem['compl']) echo $rem['compl'] . ' ';
+										echo $rem['bairro']?></span><br />
+									<span onclick="edit(this)"><?php echo $rem['zipcode'] . ' - ' . $rem['city'] ?></span>
+								</div>
+							</td>
+						</tr>
+					</table> 
+				</td>
+				<td class="BordaInfEsq">UNIDADE DE POSTAGEM</td>
+			</tr>
+			<tr>
+				<td height="146">&nbsp;</td>
+				<td align="center" class="BordaInfEsq">CARIMBO<br />UNIDADE DE ENTREGA</td>
+			</tr>
+			<tr>
+				<td height="30">&nbsp;</td>
+				<td colspan="2" align="center" class="BordaEsq"><strong>TENTATIVAS DE ENTREGA</strong></td>
+				<td colspan="5" class="BordaInfEsq" onclick="editCont(this)">DECLARA&Ccedil;&Atilde;O DE CONTE&Uacute;DO (SUJEITO &Agrave; VERIFICA&Ccedil;&Atilde;O)<br />
+					<span class="style57" ><?php $dc = $this->getDeclContAR(); echo $dc ? $dc : '&nbsp;' ?></span>
+				</td>
+			</tr>
+			<tr>
+				<td height="71" rowspan="6">&nbsp;</td>
+				<td rowspan="5" class="BordaEsq">
+					1&ordf; ________/________/________<br /><br />
+					2&ordf; ________/________/________<br /><br />
+					3&ordf; ________/________/________
+				</td>
+					<td rowspan="5" align="center">
+					______ : ______h<br /><br />
+					______ : ______h<br /><br />
+					______ : ______ h
+				</td>
+				<td height="8" colspan="4" align="center" valign="top" class="style57 BordaEsq"><strong>MOTIVO DE DEVOLU&Ccedil;&Atilde;O</strong></td>
+				<td rowspan="6" class="BordaInfEsq">RUBRICA E MATR&Iacute;CULA DO<br />CARTEIRO</td>
+			</tr>
+			<tr>
+				<td width="15" height="58" rowspan="5" class="BordaInfEsq"><img src="<?php echo $this->getSkinUrl('images/etiquetaendereco/ar2_r6_c10.gif') ?>" alt=""/></td><!--********-->
+				<td width="71" height="11"><span class="style57">Mudou-se</span></td>
+				<td width="15" rowspan="5" class="BordaInf"><img src="<?php echo $this->getSkinUrl('images/etiquetaendereco/ar2_r5_c5.gif') ?>" alt=""/></td>
+				<td width="49"><span class="style57">Recusado</span></td>
+			</tr>
+			<tr>
+				<td height="12"><span class="style57">Endere&ccedil;o insuficiente</span></td>
+				<td width="49"><span class="style57">N&atilde;o procurado</span></td>
+			</tr>
+			<tr>
+				<td height="9"><span class="style57">N&atilde;o existe o n&uacute;mero</span></td>
+				<td width="49"><span class="style57">Ausente</span></td>
+			</tr>
+			<tr>
+				<td height="8" valign="middle"><span class="style57">Desconhecido</span></td>
+				<td width="49" valign="middle"><span class="style57">Falecido</span></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="BordaInfEsq"><br />
+					<span class="style57"></span>
+				</td>
+				<td height="10" class="BordaInf style57">Outros</td>
+				<td width="49" align="right" valign="bottom" class="BordaInf style58">.</td>
+			</tr>
+			<tr>
+				<td height="22">&nbsp;</td>
+				<td colspan="6" class="BordaInfEsq">ASSINATURA DO RECEBEDOR</td>
+				<td class="BordaInfEsq">DATA DE ENTREGA</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td colspan="6" class="BordaEsq">NOME LEG&Iacute;VEL DO RECEBEDOR</td>
+				<td class="BordaEsq">N&ordm; DOC. DE IDENTIDADE</td>
+			</tr>
+		</table>
+		<?php $e++; ?>
+		<?php endfor; ?>
+		<?php if ($p < $this->getARPagesCount()): ?>
+		<div style="page-break-after: always;"></div>
+<!--		<div style="margin-top: 8px;"></div>-->
+		<?php endif; ?>
+		<?php endfor; ?>		
+	</body>
+</html>

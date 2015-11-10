@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FabioSantos_EtiquetaEndereco>
+            <version>1.0.1</version>
+        </FabioSantos_EtiquetaEndereco>
+    </modules>
+
+    <global>
+        <models>
+            <etiquetaendereco>
+                <class>FabioSantos_EtiquetaEndereco_Model</class>
+            </etiquetaendereco>
+		</models>
+		<blocks>
+            <etiquetaendereco>
+                <class>FabioSantos_EtiquetaEndereco_Block</class>
+            </etiquetaendereco>
+        </blocks>
+    </global>
+    
+	<admin>
+        <routers>
+            <etiquetaendereco>
+                <use>admin</use>
+                <args>
+                    <module>FabioSantos_EtiquetaEndereco</module>
+                    <frontName>etiquetaendereco</frontName>
+                </args>
+            </etiquetaendereco>
+        </routers>
+    </admin>
+	
+    <adminhtml>
+		<layout>
+            <updates>
+                <etiquetaendereco>
+                    <file>fabiosantos/etiquetaendereco.xml</file>
+                </etiquetaendereco>
+            </updates>
+        </layout>
+		<menu>
+			<sales>
+				<children>
+					<etiquetaendereco translate="title">
+						<title>Etiquetas Correios</title>
+						<action>etiquetaendereco/etiqueta</action>
+						<sort_order>48</sort_order>
+					</etiquetaendereco>
+				</children>
+			</sales>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<sales>
+							<children>
+								<etiquetaendereco translate="title">
+									<title>Etiquetas Correios</title>
+									<sort_order>48</sort_order>
+								</etiquetaendereco>
+							</children>
+						</sales>
+						<system>
+							<children>
+								<config>
+									<children>
+										<fabiosantos_etiquetaendereco translate="title">
+											<title>Etiquetas Correios</title>
+											<sort_order>70</sort_order>
+										</fabiosantos_etiquetaendereco>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+    </adminhtml>
+</config>
