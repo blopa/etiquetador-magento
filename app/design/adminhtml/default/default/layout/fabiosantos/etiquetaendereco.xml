@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<layout>
-    <etiquetaendereco_etiqueta_index>
-        <reference name="content">
-            <block type="etiquetaendereco/etiqueta" name="etiqueta" />
-        </reference>
-    </etiquetaendereco_etiqueta_index>
-</layout>

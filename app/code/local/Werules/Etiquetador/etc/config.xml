@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Werules_Etiquetador>
+			<version>0.0.1</version>
+		</Werules_Etiquetador>
+	</modules>
+	<global>
+		<models>
+			<werules_etiquetador>
+				<class>Werules_Etiquetador_Model</class>
+				<resourceModel>werules_etiquetador_resource</resourceModel>
+			</werules_etiquetador>
+		</models>
+		<blocks>
+			<werules_etiquetador>
+				<class>Werules_Etiquetador_Block</class>
+			</werules_etiquetador>
+		</blocks>
+		<helpers>
+			<werules_etiquetador>
+				<class>Werules_Etiquetador_Helper</class>
+			</werules_etiquetador>
+		</helpers>
+	</global>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<werules_etiquetador before="Mage_Adminhtml">Werules_Etiquetador_Adminhtml</werules_etiquetador>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+</config>

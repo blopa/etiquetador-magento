@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<sales>
+			<children>
+				<werules_etiquetador  translate="title" module="werules_etiquetador">
+					<!-- This is our menu configuration (display option) -->
+					<sort_order>100</sort_order>
+					<title>Etiquetador</title>
+					<action>adminhtml/etiquetador</action>
+				</werules_etiquetador>
+			</children>
+		</sales>
+	</menu>
+</config>

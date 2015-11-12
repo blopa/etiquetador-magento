@@ -1,0 +1,16 @@
+<?xml version = "1.0"?>
+<config>
+	<modules>
+		<!--
+			format of tag below is: Namespace_Module
+			in our case namespace will be Werules, and module name is Etiquetador
+		-->
+		<Werules_Etiquetador>
+			<!--
+				Tag active: true will tell magento to enable our module in magento
+			-->
+			<active>true</active>
+			<codePool>local</codePool>
+		</Werules_Etiquetador>
+	</modules>
+</config>
