@@ -121,6 +121,7 @@ class Werules_Etiquetador_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtm
         $this->setMassactionIdField('entity_id');
         $this->getMassactionBlock()->setFormFieldName('order_ids');
         $this->getMassactionBlock()->setUseSelectAll(false);
+		$this->getMassactionBlock()->setTemplate('etiquetador/etiquetador.phtml');
 
 		$this->getMassactionBlock()->addItem('print_etiquetador', array(
 			'label'=> 'Imprimir Etiquetas',
