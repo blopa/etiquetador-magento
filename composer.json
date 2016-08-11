@@ -1,0 +1,6 @@
+{
+  "name": "werules/etiquetador-magento",
+  "type": "magento-module",
+  "version": "0.0.1",
+  "description": "Modulo de etiquetas para Magento baseado no modulo desenvolvido pelo Fabio Santos, que não estava funcionando depois do SUPEE-6788."
+}
