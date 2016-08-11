@@ -10,7 +10,7 @@
 				Tag active: true will tell magento to enable our module in magento
 			-->
 			<active>true</active>
-			<codePool>local</codePool>
+			<codePool>community</codePool>
 		</Werules_Etiquetador>
 	</modules>
 </config>
