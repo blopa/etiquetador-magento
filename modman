@@ -1,0 +1,4 @@
+app/code/community/Werules/Etiquetador app/code/community/Werules/Etiquetador
+app/design/adminhtml/default/default/layout/*.xml app/design/adminhtml/default/default/layout/
+app/design/adminhtml/default/default/template/etiquetador app/design/adminhtml/default/default/template/etiquetador
+app/etc/modules/*.xml app/etc/modules/
